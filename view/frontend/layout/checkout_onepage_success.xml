@@ -8,6 +8,9 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="checkout.success">
+            <action method='setTemplate'>
+                <argument name='template' xsi:type='string'>Bleez_Pagseguro::checkout/success.phtml</argument>
+            </action>
             <block class="Bleez\Pagseguro\Block\Success" name="pagseguro.success" template="success.phtml" cacheable="false" />
         </referenceBlock>
     </body>
