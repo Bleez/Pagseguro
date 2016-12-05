@@ -1,0 +1,8 @@
+<?php
+/**
+ * @var $this Bleez\Pagseguro\Block\Checkout
+**/
+if($this->isPagseguroActive()):
+    echo $this->getPagseguroScript(); ?>
+    <script>window.pagseguroMsgs = <?php echo $this->getPagseguroPaymentMessages(); ?>; window.pagseguroMsgs.active = true;</script>
+<?php endif; ?>

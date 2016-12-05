@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <pagseguro_standard>
+                <active>0</active>
+                <title>Pagseguro</title>
+                <order_status>pending</order_status>
+                <model>Bleez\Pagseguro\Model\Payment\Standard</model>
+                <payment_action>order</payment_action>
+                <group>pagseguro</group>
+            </pagseguro_standard>
+            <pagseguro_cc>
+                <active>0</active>
+                <title>Pagseguro CC</title>
+                <cctypes>AE,VI,MC,DI,OT</cctypes>
+                <order_status>pending</order_status>
+                <model>Bleez\Pagseguro\Model\Payment\Cc</model>
+                <payment_action>authorize_capture</payment_action>
+                <group>pagseguro</group>
+            </pagseguro_cc>
+            <pagseguro_boleto>
+                <active>0</active>
+                <title>Pagseguro Boleto</title>
+                <order_status>pending</order_status>
+                <model>Bleez\Pagseguro\Model\Payment\Boleto</model>
+                <payment_action>authorize_capture</payment_action>
+                <group>pagseguro</group>
+            </pagseguro_boleto>
+            <pagseguro_debito>
+                <active>0</active>
+                <title>Pagseguro Debito</title>
+                <order_status>pending</order_status>
+                <model>Bleez\Pagseguro\Model\Payment\Debito</model>
+                <payment_action>authorize_capture</payment_action>
+                <group>pagseguro</group>
+            </pagseguro_debito>
+        </payment>
+    </default>
+</config>

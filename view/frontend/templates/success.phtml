@@ -1,0 +1,13 @@
+<?php
+/**
+ * @var $this Bleez\Pagseguro\Block\Success
+ */
+
+if($this->getBoletoUrl()): ?>
+    <a class="action primary boleto" href="<?php echo $this->getBoletoUrl(); ?>" target="_blank">Clique aqui para imprimir o boleto</a>
+<?php $this->unsetBoletoUrl();
+    endif;
+if($this->getDebitoUrl()): ?>
+    <a class="action primary bank" href="<?php echo $this->getDebitoUrl(); ?>" target="_blank">Clique aqui para ir ao site do banco</a>
+<?php $this->unsetDebitoUrl();
+endif; ?>

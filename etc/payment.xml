@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<payment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Payment:etc/payment.xsd">
+    <groups>
+        <group id="pagseguro">
+            <label>Pagseguro</label>
+        </group>
+    </groups>
+    <methods>
+        <method name="pagseguro_standard">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="pagseguro_cc">
+            <allow_multiple_address>1</allow_multiple_address>
+        </method>
+        <method name="pagseguro_boleto">
+            <allow_multiple_address>1</allow_multiple_address>
+        </method>
+        <method name="pagseguro_debito">
+            <allow_multiple_address>1</allow_multiple_address>
+        </method>
+    </methods>
+</payment>

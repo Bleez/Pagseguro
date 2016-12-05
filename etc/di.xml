@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Bleez\Pagseguro\Api\RedirectInterface" type="Bleez\Pagseguro\Model\Redirect" />
+    <preference for="Bleez\Pagseguro\Api\TransparentInterface" type="Bleez\Pagseguro\Model\Transparent" />
+    <type name="Bleez\Pagseguro\Model\Payment\Standard">
+        <arguments>
+            <argument name="helper" xsi:type="object">Bleez\Pagseguro\Helper\Standard</argument>
+        </arguments>
+    </type>
+    <type name="Bleez\Pagseguro\Model\Notification">
+        <arguments>
+            <argument name="helper" xsi:type="object">Bleez\Pagseguro\Helper\Standard</argument>
+        </arguments>
+    </type>
+    <type name="Bleez\Pagseguro\Model\Cc">
+        <arguments>
+            <argument name="helper" xsi:type="object">Bleez\Pagseguro\Helper\Transparent</argument>
+            <argument name="regionFactory" xsi:type="object">Magento\Directory\Model\RegionFactory</argument>
+        </arguments>
+    </type>
+    <type name="Bleez\Pagseguro\Controller\Notification\Index">
+        <arguments>
+            <argument name="helper" xsi:type="object">Bleez\Pagseguro\Helper\Standard</argument>
+            <argument name="notification" xsi:type="object">Bleez\Pagseguro\Model\Notification</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Checkout\Block\Checkout\AttributeMerger">
+        <plugin name="bleez-pagseguro-attributeMerger" type="Bleez\Pagseguro\Plugin\Checkout\Block\Checkout\AttributeMerger" sortOrder="20"/>
+    </type>
+</config>

@@ -1,0 +1,125 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment">
+            <group id="pagseguro_general" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Pagseguro Geral</label>
+                <field id="environment" translate="label" type="select" sortOrder="2" showInDefault="2" showInWebsite="1" showInStore="1">
+                    <label>Ambiente</label>
+                    <source_model>Bleez\Pagseguro\Model\System\Config\Environment</source_model>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="email" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email</label>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                    <validate>validate-email</validate>
+                </field>
+                <field id="token_sandbox" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Token Sandbox</label>
+                    <depends>
+                        <field id="active">1</field>
+                        <field id="environment">sandbox</field>
+                    </depends>
+                </field>
+                <field id="appid_sandbox" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>AppId Sandbox</label>
+                    <depends>
+                        <field id="active">1</field>
+                        <field id="environment">sandbox</field>
+                    </depends>
+                </field>
+                <field id="appkey_sandbox" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>AppKey Sandbox</label>
+                    <depends>
+                        <field id="active">1</field>
+                        <field id="environment">sandbox</field>
+                    </depends>
+                </field>
+                <field id="token_production" translate="label" type="text" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Token Produção</label>
+                    <depends>
+                        <field id="active">1</field>
+                        <field id="environment">production</field>
+                    </depends>
+                </field>
+                <field id="email_comprador" translate="label" type="text" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>E-mail Comprador</label>
+                    <comment>Numero do cartão de credito 4111111111111111</comment>
+                    <depends>
+                        <field id="active">1</field>
+                        <field id="environment">sandbox</field>
+                    </depends>
+                </field>
+                <field id="appid_production" translate="label" type="text" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>AppId Produção</label>
+                    <depends>
+                        <field id="active">1</field>
+                        <field id="environment">production</field>
+                    </depends>
+                </field>
+                <field id="appkey_production" translate="label" type="text" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>AppKey Produção</label>
+                    <depends>
+                        <field id="active">1</field>
+                        <field id="environment">production</field>
+                    </depends>
+                </field>
+                <field id="sync" translate="label" sortOrder="62" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <frontend_model>Bleez\Pagseguro\Block\Adminhtml\System\Config\Refresh</frontend_model>
+                </field>
+            </group>
+            <group id="pagseguro_standard" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Pagseguro Standard</label>
+                <field id="active" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Ativo</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Titulo</label>
+                </field>
+                <field id="message" translate="label comment" type="textarea" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Mensagem no Checkout</label>
+                </field>
+            </group>
+            <group id="pagseguro_cc" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Pagseguro Cartão de Credito</label>
+                <field id="active" translate="label sshcomment" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Ativo</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Titulo</label>
+                </field>
+            </group>
+            <group id="pagseguro_boleto" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Pagseguro Boleto</label>
+                <field id="active" translate="label sshcomment" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Ativo</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Titulo</label>
+                </field>
+                <field id="message" translate="label comment" type="textarea" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Mensagem no Checkout</label>
+                </field>
+            </group>
+            <group id="pagseguro_debito" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Pagseguro Debito</label>
+                <field id="active" translate="label sshcomment" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Ativo</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Titulo</label>
+                </field>
+                <field id="message" translate="label comment" type="textarea" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Mensagem no Checkout</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
