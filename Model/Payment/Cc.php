@@ -222,6 +222,11 @@ class Cc extends \Magento\Payment\Model\Method\Cc implements TransparentInterfac
 
     }
 
+    public function validate()
+    {
+        \Magento\Payment\Model\Method\AbstractMethod::validate();
+    }
+
     public function refund(\Magento\Payment\Model\InfoInterface $payment, $amount)
     {
         $transactionCode = $payment->getRefundTransactionId();
